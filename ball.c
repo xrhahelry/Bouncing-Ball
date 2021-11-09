@@ -22,7 +22,7 @@ void circle(void)
 int main(void) 
 {
   bool run = true;
-  int count = 1;
+  int count = 0;
   bool down = true;
 
   while(run)
@@ -43,7 +43,7 @@ int main(void)
 
     if (count > 15){
       down = false;
-    } else if (count < 1) {
+    } else if (count < 0) {
       down = true;
     }
   }
