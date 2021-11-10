@@ -65,7 +65,7 @@ void main(void)
       right--;
     }
 
-    if (count > 10){
+    if (count > 16){
       down = false;
       cycle++;
     } else if (count < 0) {
