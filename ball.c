@@ -2,29 +2,39 @@
 #include<conio.h>
 #include<stdbool.h>
 
-void ball(void)
+
+void ball(int count)
 {
-  printf("              .......                 \n");
-  printf("        .zd$$$$$$$$$$$$$bc.           \n");        
-  printf("      z$$$$$$$$$$$$$$$$$$$$$c         \n");
-  printf("    d$$$$$$$$$$$$$$$$$$$$$$$$$b       \n");
-  printf("   z$$$$$$$$$$$$$$$$$$$$$$$******c    \n");
-  printf("  J$$$$$$$$$$$$$$$**              b   \n");
-  printf(" J$$$$$$$$$$$*                     b  \n");
-  printf(".$$$$$$$$*                          L \n");
-  printf("$$$$$$*       z$P**$b               3 \n");
-  printf("$$$*          $$   4$F              ^r\n");
-  printf("$                  d$               eF\n");
-  printf(".                 d$             .d$$F\n");
-  printf("L                J$\%.zeL      .e$$$$$\n");
-  printf("'               4$$$P      .e$$$$$$$P \n");
-  printf(" &                      .e$$$$$$$$$$$ \n");
-  printf("  &                .ze$$$$$$$$$$$$$$  \n");
-  printf("   &     ....ee$$$$$$$$$$$$$$$$$$$P   \n");
-  printf("    ^$$$$$$$$$$$$$$$$$$$$$$$$$$$      \n");
-  printf("      ^*$$$$$$$$$$$$$$$$$$$$$P        \n");
-  printf("          *$$$$$$$$$$$$$$$*           \n");
-  printf("             ^ ******                 ");       
+  char ball[21][39] = {
+    "              ........                ",
+    "        .zd$$$$$$$$$$$$$$bc.          ",     
+    "      z$$$$$$$$$$$$$$$$$$$$$$c        ",
+    "    d$$$$$$$$$$$$$$$$$$$$$$$$$$b      ",
+    "   z$$$$$$$$$$$$$$$$$$$$$$$******c    ",
+    "  J$$$$$$$$$$$$$$$**              b   ",
+    " J$$$$$$$$$$$*                     b  ",
+    ".$$$$$$$$*                          L ",
+    "$$$$$$*       z$P**$b               3 ",
+    "$$$*          $$   4$F              ^r",
+    "$                  d$               eF",
+    ".                 d$             .d$$F",
+    "L                J$&.zeL      .e$$$$$ ",
+    "'               4$$$P      .e$$$$$$$P ",
+    " &                      .e$$$$$$$$$$  ",
+    "  &                .ze$$$$$$$$$$$$$   ",
+    "   &     ....ee$$$$$$$$$$$$$$$$$$P    ",
+    "    ^$$$$$$$$$$$$$$$$$$$$$$$$$$$*     ",
+    "      ^*$$$$$$$$$$$$$$$$$$$$$P*       ",
+    "          *$$$$$$$$$$$$$$$$*          ",
+    "             ^***********             "
+  };  
+
+  for (int i = 0; i < 21; i++) {
+    for (int j = 0; j <= count; j++) {
+      printf("\t");
+    }
+    printf("%s\n", ball[i]);
+  }
 }
 
 
@@ -34,6 +44,7 @@ void main(void)
   int count = 0;
   bool down = true;
   int cycle = 0;
+  int right = 0;
 
   while(run)
   {
@@ -44,12 +55,14 @@ void main(void)
       printf("\n");
     }
 
-    ball();
+    ball(right);
 
     if(down){
       count++;
+      right++;
     } else {
       count--;
+      right--;
     }
 
     if (count > 10){
